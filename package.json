@@ -1,0 +1,45 @@
+{
+  "name": "sqb-serializer-pg",
+  "description": "SQB serialization plugin for PostgreSQL database",
+  "version": "0.1.0",
+  "author": "Panates Ltd.",
+  "contributors": [
+    "Eray Hanoglu <e.hanoglu@panates.com>"
+  ],
+  "license": "MIT",
+  "repository": "panates/sqb-serializer-pg",
+  "main": "lib/index.js",
+  "keywords": [
+    "javascript",
+    "sqb",
+    "sql",
+    "serialize",
+    "postgres",
+    "database",
+    "interface"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.9.0",
+    "eslint-config-google": "^0.9.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1"
+  },
+  "peerDependencies": {
+    "sqb": "^0.10.0"
+  },
+  "engines": {
+    "node": ">= 4.0"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/"
+  ],
+  "scripts": {
+    "test": "mocha --require test/support/env --reporter spec --bail --check-leaks test/",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/"
+  }
+}

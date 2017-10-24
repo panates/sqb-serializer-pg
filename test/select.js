@@ -55,5 +55,15 @@ describe('PostreSQL select queries', function() {
       done();
     });
 
+  it('Should serialize params', function(done) {
+    var query = sqb.select().from('table1').where(['ID', /ID/]);
+    var result = query.generate({
+      dialect: 'pg'
+    }, {ID: 5});
+    assert.equal(result.sql, 'select * from table1 where ID = $1');
+    assert.deepEqual(result.values, [5]);
+    done();
+  });
+
 });
 

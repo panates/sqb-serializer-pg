@@ -117,6 +117,17 @@ describe('PostreSQL select queries', function() {
     done();
   });
 
+  it('Should serialize array for "in" operator', function(done) {
+    query = sqb.select().from('table1')
+        .where(Op.in('ID', [1, 2, 3]));
+    result = query.generate({
+      dialect: 'pg',
+      prettyPrint: 0
+    }, {ID: 5});
+    assert.equal(result.sql, 'select * from table1 where ID in (1,2,3)');
+    done();
+  });
+
   it('Should serialize array params for "not in" operator', function(done) {
     query = sqb.select().from('table1')
         .where(Op.notIn('ID', /id/))
@@ -127,6 +138,17 @@ describe('PostreSQL select queries', function() {
     }, {ID: 5});
     assert.equal(result.sql, 'select * from table1 where ID not = ANY($1)');
     assert.deepEqual(result.values, [[1, 2, 3]]);
+    done();
+  });
+
+  it('Should serialize array for "not in" operator', function(done) {
+    query = sqb.select().from('table1')
+        .where(Op.notIn('ID', [1, 2, 3]));
+    result = query.generate({
+      dialect: 'pg',
+      prettyPrint: 0
+    }, {ID: 5});
+    assert.equal(result.sql, 'select * from table1 where ID not in (1,2,3)');
     done();
   });
 

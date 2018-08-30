@@ -6,8 +6,8 @@ const Op = sqb.Op;
 
 sqb.use(require('../'));
 
-var query;
-var result;
+let query;
+let result;
 
 describe('PostreSQL select queries', function() {
 

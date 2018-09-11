@@ -1,7 +1,7 @@
 {
   "name": "sqb-serializer-pg",
   "description": "SQB serialization plugin for PostgreSQL database",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "author": "Panates Ltd.",
   "contributors": [
     "Eray Hanoglu <e.hanoglu@panates.com>"
@@ -25,10 +25,10 @@
     "eslint-config-google": "^0.10.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
-    "sqb": "^3.2.7"
+    "sqb": "^3.4.0"
   },
   "peerDependencies": {
-    "sqb": "^>=3.2.7"
+    "sqb": "^>=3.4.0"
   },
   "engines": {
     "node": ">= 6.0"

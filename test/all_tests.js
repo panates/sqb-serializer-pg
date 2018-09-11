@@ -128,7 +128,7 @@ describe('PostreSQL select queries', function() {
       dialect: 'pg',
       prettyPrint: 0
     });
-    assert.equal(result.sql, 'select * from table1 where ID not = ANY($1)');
+    assert.equal(result.sql, 'select * from table1 where ID != ANY($1)');
     assert.deepEqual(result.values, [[1, 2, 3]]);
   });
 
@@ -140,6 +140,16 @@ describe('PostreSQL select queries', function() {
       prettyPrint: 0
     });
     assert.equal(result.sql, 'select * from table1 where ID not in (1,2,3)');
+  });
+
+  it('Should serialize "ne" operator as !=', function() {
+    query = sqb.select().from('table1')
+        .where({'ID ne': 0});
+    result = query.generate({
+      dialect: 'pg',
+      prettyPrint: 0
+    });
+    assert.equal(result.sql, 'select * from table1 where ID != 0');
   });
 
 });

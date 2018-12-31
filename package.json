@@ -1,7 +1,7 @@
 {
   "name": "sqb-serializer-pg",
   "description": "SQB serialization plugin for PostgreSQL database",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "author": "Panates Ltd.",
   "contributors": [
     "Eray Hanoglu <e.hanoglu@panates.com>"
